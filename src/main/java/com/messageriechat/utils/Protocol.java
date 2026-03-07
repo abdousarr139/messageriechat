@@ -1,4 +1,4 @@
-package com.messageriechat.utils;
+package com.utils;
 
 public class Protocol {
 
