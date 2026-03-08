@@ -1,7 +1,7 @@
-package com.ui;
+package com.messageriechat.ui;
 
-import com.messagerie.client.Client;
-import com.messagerie.utils.Protocol;
+import com.messageriechat.client.Client;
+import com.messageriechat.utils.Protocol;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
