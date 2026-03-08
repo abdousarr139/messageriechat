@@ -1,0 +1,25 @@
+PERSISTENCES DANS LE DOSSIER META-INF:
+Le fichier persistence.xml permet de configurer la connexion entre l’application Java et la base de données en utilisant JPA et Hibernate. La balise <persistence> définit la configuration générale de JPA et permet également de déclarer les entités qui correspondent aux tables de la base de données.
+La balise <properties> contient les différentes propriétés de configuration, notamment les informations de connexion à PostgreSQL comme le driver JDBC, l’URL de la base de données, le nom d’utilisateur et le mot de passe.
+La propriété hibernate.dialect indique à Hibernate le type de base de données utilisé, tandis que hibernate.hbm2ddl.auto permet de gérer la création ou la mise à jour automatique des tables. Enfin, les propriétés hibernate.show_sql et hibernate.format_sql permettent d’afficher les requêtes SQL dans la console pour faciliter le suivi et le débogage.
+
+CHATCONTROLLER DANS LE DOSSIER UI:
+Le fichier ChatController.java est un contrôleur JavaFX qui gère l’interface de discussion de l’application de messagerie. Il permet d’afficher les utilisateurs connectés, d’envoyer et de recevoir des messages, et de gérer l’interaction entre l’interface graphique et le serveur.
+Les composants annotés avec @FXML correspondent aux éléments de l’interface graphique comme la liste des utilisateurs, la zone d’affichage des messages et le champ de saisie des messages. La méthode init() initialise la discussion en affichant l’utilisateur connecté et en récupérant la liste des utilisateurs disponibles.
+Le contrôleur traite également les messages envoyés par le serveur pour afficher les nouveaux messages ou l’historique des conversations. Les messages sont affichés sous forme de bulles de discussion, avec un style différent selon qu’ils sont envoyés ou reçus.
+Enfin, ce fichier gère l’envoi des messages, la déconnexion de l’utilisateur et la mise à jour automatique de la liste des utilisateurs connectés.
+Toutjours dans le dosssier UI LOGINCONTROLLER
+Le fichier LoginController.java est un contrôleur JavaFX qui gère la page de connexion de l’application de messagerie. Il permet à l’utilisateur de saisir son nom d’utilisateur et son mot de passe afin de se connecter au serveur.
+La méthode handleLogin() vérifie les informations saisies, tente d’établir la connexion avec le serveur et traite la réponse reçue. Si la connexion réussit, l’utilisateur est redirigé vers l’écran de discussion (chat).
+Ce contrôleur permet également d’accéder à la page d’inscription et d’afficher des messages d’erreur en cas de problème.
+Avec le fichier REGISTRECONTROLLER
+Le fichier RegisterController.java est un contrôleur JavaFX qui gère la page d’inscription de l’application de messagerie. Il permet à un utilisateur de créer un compte en saisissant un nom d’utilisateur, un mot de passe et une confirmation du mot de passe.
+La méthode handleRegister() vérifie que tous les champs sont remplis, que les mots de passe correspondent et que le mot de passe respecte la longueur minimale. Ensuite, elle établit une connexion avec le serveur et envoie la demande d’inscription.
+Le contrôleur traite la réponse du serveur pour afficher un message de succès ou d’erreur. Enfin, la méthode handleGoToLogin() permet de retourner à la page de connexion.
+DOSSIER UTILS:
+Le dossier utils contient des classes réutilisables pour la communication, les formats de données, et la configuration. Dans ton projet, Protocol.java y joue un rôle central pour assurer que le client et le serveur se comprennent parfaitement.
+Le fichier JpaUtil.java est une classe utilitaire qui gère la connexion à la base de données avec JPA dans l’application de messagerie. Elle crée une instance unique d’EntityManagerFactory au démarrage, basée sur l’unité de persistance définie dans persistence.xml.
+Cette classe fournit une méthode getEntityManagerFactory() pour permettre aux autres parties de l’application de créer des EntityManager et d’effectuer des opérations sur la base de données. Elle contient également une méthode shutdown() pour fermer proprement la connexion et libérer les ressources lorsque l’application se termine.
+En résumé, JpaUtil centralise la gestion de JPA et simplifie l’accès à la base de données pour toute l’application.
+PasswordUtil.java est une classe utilitaire qui sécurise les mots de passe dans l’application. Elle fournit une méthode hash() pour hasher un mot de passe avant de le stocker et une méthode verify() pour vérifier un mot de passe lors de la connexion. Cette classe garantit que les mots de passe sont protégés et ne sont jamais stockés en clair.
+Protocol.java est une classe utilitaire qui définit toutes les commandes et réponses utilisées pour la communication entre le client et le serveur. Elle inclut également un séparateur pour formater les messages. Cette classe assure que le client et le serveur utilisent un protocole commun et fiable pour échanger les informations.

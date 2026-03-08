@@ -2,9 +2,8 @@ module com.messageriechat.messageriechat {
     requires javafx.controls;
     requires javafx.fxml;
 
-    requires org.kordamp.bootstrapfx.core;
-    requires com.almasb.fxgl.all;
     requires jakarta.persistence;
+    requires jbcrypt;
 
     opens com.messageriechat to javafx.fxml;
     exports com.messageriechat;

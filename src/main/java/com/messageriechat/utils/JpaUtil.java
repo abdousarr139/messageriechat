@@ -1,6 +1,5 @@
 package com.messageriechat.utils;
 
-
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
