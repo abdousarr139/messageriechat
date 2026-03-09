@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.messageriechat.ui.ChatController"
+      style="-fx-background-color: #f0f2f5;">
+
+    <!-- Panneau gauche : liste des utilisateurs -->
+    <VBox style="-fx-pref-width: 250; -fx-background-color: #ffffff;
+                 -fx-border-color: #ddd; -fx-border-width: 0 1 0 0;">
+
+        <HBox alignment="CENTER_LEFT"
+              style="-fx-padding: 15; -fx-background-color: #128C7E;">
+            <Label fx:id="currentUserLabel"
+                   style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15;"/>
+        </HBox>
+
+        <Label text="Utilisateurs connectés"
+               style="-fx-padding: 10; -fx-font-weight: bold; -fx-text-fill: #555;"/>
+
+        <ListView fx:id="userListView" style="-fx-pref-height: 500;"/>
+
+        <Button text="🚪 Se déconnecter" onAction="#handleLogout"
+                style="-fx-pref-width: 250; -fx-pref-height: 40;
+                       -fx-background-color: #dc3545; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-cursor: hand;"/>
+    </VBox>
+
+    <!-- Panneau droit : zone de chat -->
+    <VBox HBox.hgrow="ALWAYS">
+
+        <!-- En-tête conversation -->
+        <HBox alignment="CENTER_LEFT"
+              style="-fx-padding: 15; -fx-background-color: #128C7E;">
+            <Label fx:id="chatWithLabel"
+                   text="Sélectionnez un utilisateur"
+                   style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15;"/>
+        </HBox>
+
+        <!-- Zone des messages -->
+        <ScrollPane fx:id="scrollPane" VBox.vgrow="ALWAYS"
+                    fitToWidth="true"
+                    style="-fx-background-color: #ECE5DD;">
+            <VBox fx:id="messageBox" spacing="8"
+                  style="-fx-padding: 15; -fx-background-color: #ECE5DD;"/>
+        </ScrollPane>
+
+        <!-- Zone de saisie -->
+        <HBox spacing="10" style="-fx-padding: 10; -fx-background-color: #f0f2f5;">
+            <TextField fx:id="messageField"
+                       promptText="Écrire un message..."
+                       HBox.hgrow="ALWAYS"
+                       style="-fx-pref-height: 40; -fx-font-size: 14;"
+                       onAction="#handleSendMessage"/>
+            <Button text="Envoyer ▶" onAction="#handleSendMessage"
+                    style="-fx-pref-height: 40; -fx-background-color: #128C7E;
+                           -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"/>
+        </HBox>
+    </VBox>
+</HBox>
