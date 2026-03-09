@@ -15,7 +15,7 @@ public class ClientApp extends Application {
         Parent root = loader.load();
 
         primaryStage.setTitle("💬 Messagerie");
-        primaryStage.setScene(new Scene(root, 400, 400));
+        primaryStage.setScene(new Scene(root, 400, 500));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

@@ -8,15 +8,15 @@
     <persistence-unit name="messageriePU" transaction-type="RESOURCE_LOCAL">
 
         <!-- Entités -->
-        <class>com.messagerie.model.User</class>
-        <class>com.messagerie.model.Message</class>
+        <class>com.messageriechat.model.User</class>
+        <class>com.messageriechat.model.Message</class>
 
         <properties>
             <!-- Connexion PostgreSQL -->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/messagerie_db"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/messageriechat_db"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="P@sser102"/>
+            <property name="jakarta.persistence.jdbc.password" value="passer"/>
 
             <!-- Dialecte Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.messageriechat.ui.RegisterController"
+      alignment="CENTER" spacing="15"
+      style="-fx-padding: 40; -fx-background-color: #f0f2f5;">
+
+    <Label text="💬 Créer un compte" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #128C7E;"/>
+
+    <TextField fx:id="usernameField" promptText="Nom d'utilisateur"
+               style="-fx-pref-width: 300; -fx-pref-height: 40; -fx-font-size: 14;"/>
+
+    <PasswordField fx:id="passwordField" promptText="Mot de passe"
+                   style="-fx-pref-width: 300; -fx-pref-height: 40; -fx-font-size: 14;"/>
+
+    <PasswordField fx:id="confirmPasswordField" promptText="Confirmer le mot de passe"
+                   style="-fx-pref-width: 300; -fx-pref-height: 40; -fx-font-size: 14;"/>
+
+    <Button text="S'inscrire" onAction="#handleRegister"
+            style="-fx-pref-width: 300; -fx-pref-height: 40;
+                   -fx-background-color: #128C7E; -fx-text-fill: white;
+                   -fx-font-size: 14; -fx-font-weight: bold; -fx-cursor: hand;"/>
+
+    <Label fx:id="messageLabel" style="-fx-text-fill: red;"/>
+
+    <Button text="Déjà un compte ? Se connecter" onAction="#handleGoToLogin"
+            style="-fx-background-color: transparent; -fx-text-fill: #128C7E;
+                   -fx-cursor: hand; -fx-font-size: 13;"/>
+</VBox>
