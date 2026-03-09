@@ -23,3 +23,16 @@ Cette classe fournit une méthode getEntityManagerFactory() pour permettre aux a
 En résumé, JpaUtil centralise la gestion de JPA et simplifie l’accès à la base de données pour toute l’application.
 PasswordUtil.java est une classe utilitaire qui sécurise les mots de passe dans l’application. Elle fournit une méthode hash() pour hasher un mot de passe avant de le stocker et une méthode verify() pour vérifier un mot de passe lors de la connexion. Cette classe garantit que les mots de passe sont protégés et ne sont jamais stockés en clair.
 Protocol.java est une classe utilitaire qui définit toutes les commandes et réponses utilisées pour la communication entre le client et le serveur. Elle inclut également un séparateur pour formater les messages. Cette classe assure que le client et le serveur utilisent un protocole commun et fiable pour échanger les informations.
+
+EXPLICATION DU FONCTIONNEMENT DU SERVEUR:
+Le serveur de l’application de messagerie gère la communication entre les utilisateurs et la base de données PostgreSQL via Hibernate ORM. Il maintient les utilisateurs et les messages, en stockant leurs informations dans les tables User et Message.
+Chaque client se connecte via un socket TCP et est géré par un ClientHandler dédié.
+Le serveur traite les principales commandes :
+REGISTER : création d’un nouvel utilisateur.
+LOGIN : authentification et mise à jour du statut à ONLINE.
+LOGOUT : déconnexion et mise à jour du statut à OFFLINE.
+GET_USERS : renvoi de la liste des utilisateurs et leur statut.
+SEND_MSG : enregistrement et transmission des messages.
+GET_HISTORY : récupération de l’historique des échanges entre deux utilisateurs.
+Le serveur met à jour en temps réel les statuts des utilisateurs et envoie les messages instantanément aux destinataires connectés. Toutes les actions sont loguées pour le suivi et le débogage.
+En résumé, le serveur assure une communication fiable, la persistance des données, et le suivi précis de l’activité des utilisateurs et des messages dans l’application.
